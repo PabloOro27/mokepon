@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:ital,wght@1,200&display=swap');
+
+body
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #25316D;
+}
+
+#seleccionar_mascota
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input
+{
+   display: none;
+}
+
+input:checked + label
+{
+    background-color: rgb(0, 73, 183);
+}
+
+.titulo 
+{
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(244, 244, 244);
+    font-size: 35px;
+}
+
+.subtitulo
+{
+    color: white;
+    font-size: 24px;
+}
+
+.tarjetas
+{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tarjeta-mokepon
+{
+    width: 215px;
+    height: 125px;
+    background-color: #5F6F94;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.tarjeta-mokepon img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#selectMascota
+{
+    width: 115px;
+    height: 35px;
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 20px;
+    color: white;
+    margin-top: 30px;
+}
+
+
+#seleccionar_ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonesAtaque
+{
+    background-color: #5F6F94 ;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-color: transparent;
+    width: 100px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 4px;
+}
+
+#mensajes
+{
+    color: white;
+
+}
+
+.vidasJugador
+{
+    color: white;
+}
+
+#mensajes 
+{
+    width: 220px;
+    background: rgb(191, 219, 219);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#selectReiniciar
+{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    font-size: 15px;
+    width: 80px;
+    color: rgb(12, 124, 180);
+    font-family: 'Source Sans Pro', sans-serif;
+    justify-content: center;
+}
+
+.ataques 
+{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+@media (max-width: 360px)
+{
+    .tarjetas
+    {
+        flex-direction: column;
+    }
+}
