@@ -1,7 +1,7 @@
 let ataqueJugador 
 let ataqueEnemigo
-let vidaEnenmigo = 3 
-let vidaJugador = 3
+let vidaEnenmigo = 2 
+let vidaJugador = 2
 
 function iniciarJuego()
 {
