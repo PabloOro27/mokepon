@@ -21,7 +21,7 @@ input
 
 input:checked + label
 {
-    background-color: rgb(17, 186, 42);
+    background-color: rgb(186, 17, 17);
 }
 
 .titulo 
