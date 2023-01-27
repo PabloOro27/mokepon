@@ -37,6 +37,14 @@ input:checked + label
     font-size: 24px;
 }
 
+.Logo
+{
+    gap: 10px;
+    width: 225px;
+    height: 60px;
+}
+
+
 .tarjetas
 {
     display: flex;
