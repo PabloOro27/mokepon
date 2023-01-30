@@ -68,7 +68,11 @@ function seleccionarMascotaJugador()
     }
 
 
-    else alert("No has seleccionado nada, Selecciona una mascota") // si la eleccion esta en blanco 
+    else // si la eleccion esta en blanco 
+    {
+        alert("No has seleccionado nada, Selecciona una mascota")
+        location.reload()
+    }  
 
     let sectionSeleccionarAtaque = document.getElementById('seleccionar_ataque')
     sectionSeleccionarAtaque.style.display = 'flex'
