@@ -3,6 +3,8 @@ let ataqueEnemigo
 let vidaEnenmigo = 3 
 let vidaJugador = 3
 let mokepones = []
+let opcionDeMokepones 
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 //variables extraidas de elememtos html funcion iniciarJuego 
 const sectionSeleccionarAtaque = document.getElementById('seleccionar_ataque')
@@ -13,12 +15,12 @@ const botonAgua = document.getElementById('selectAgua')
 const botonTierra = document.getElementById('selectTierra')
 
 //seleccion de mascotas 
-const inputCapipego = document.getElementById(`Capipego`)
-const inputHipodoge = document.getElementById(`Hipodoge`)
-const inputLangostelvis = document.getElementById(`Langostelvis`)
-const inputRatigueya = document.getElementById(`Ratigueya`)
-const inputPydos = document.getElementById(`Pydos`)
-const inputTucalma = document.getElementById(`Tucalma`)
+let inputCapipego 
+let inputHipodoge 
+let inputLangostelvis 
+let inputRatigueya 
+let inputPydos 
+let inputTucalma 
 const spanMascotaJugador = document.getElementById('nombreMascota')
 const sectionSelecconarMascota = document.getElementById('seleccionar_mascota')
 
@@ -96,10 +98,29 @@ pydos.ataques.push(
     {nombre:'🌱', id: 'selectTierra'},
     {nombre:'🔥', id: 'selectFuego'}
 )
+
+mokepones.push(hipodoge,capipepo,ratigueya,langostelvis,tucalma,pydos)
 //-----------------------------------------------------------------
 function iniciarJuego()
 {
     sectionSeleccionarAtaque.style.display = 'none'
+
+    mokepones.forEach((mokepon) => {
+        opcionDeMokepones = `
+            <input type=“radio” name=“mascota” id=${mokepon.nombre} />
+            <label class="tarjeta-mokepon" for=${mokepon.nombre}>
+                <p>${mokepon.nombre}</p>
+                <img src=${mokepon.foto} alt=${mokepon.nombre}>
+            </label>`
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+
+        inputLangostelvis = document.getElementById(`Langostelvis`)
+        inputRatigueya = document.getElementById(`Ratigueya`)
+        inputPydos = document.getElementById(`Pydos`)
+        inputHipodoge = document.getElementById(`Hipodoge`)
+        inputCapipego = document.getElementById(`Capipego`)
+        inputTucalma = document.getElementById('Tucalma')
+    })
 
     botonMascotaJugador.addEventListener(`click`, seleccionarMascotaJugador)
 
