@@ -2,6 +2,7 @@ let ataqueJugador
 let ataqueEnemigo
 let vidaEnenmigo = 3 
 let vidaJugador = 3
+let mokepones = []
 
 //variables extraidas de elememtos html funcion iniciarJuego 
 const sectionSeleccionarAtaque = document.getElementById('seleccionar_ataque')
@@ -32,9 +33,69 @@ const spanVidasEnemigo = document.getElementById('vidasEnemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataqueDelJugador = document.getElementById('ataquesDelJugador') //jalar informacion del html 
 const ataqueDelEnemigo = document.getElementById('ataquesDelEnemigo')
+//------------------------------------------------------------------
+//clases 
+class Mokepon
+{
+    constructor(nombre, foto, vida) 
+    {
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+        this.ataques = []
+    }
+}
+//creacion de mokepones
+let hipodoge = new Mokepon('Hipodogue', './assets/mokepones/hipodoge.png', 4)
+let capipepo = new Mokepon('Capipepo', './assets/mokepones/capipepo.png', 4)
+let ratigueya = new Mokepon('Ratigueya', './assets/mokepones/ratigueya.png', 4)
+let langostelvis = new Mokepon('Langostelvis', './assets/mokepones/langostelvis.png', 4)
+let tucalma = new Mokepon('Tucalma', './assets/mokepones/tucalma.png', 4)
+let pydos = new Mokepon('Pydos', './assets/mokepones/pydos.png', 4)
 
-//funcion revisar vidas 
-
+//agragar los ataque de los moquepones 
+hipodoge.ataques.push(
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🌱', id: 'selectTierra'}
+)
+capipepo.ataques.push(
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'🔥', id: 'selectFuego'}
+)
+ratigueya.ataques.push(
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'💧', id: 'selectAgua'}
+)
+langostelvis.ataques.push(
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'🌱', id: 'selectTierra'}
+)
+tucalma.ataques.push(
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'🔥', id: 'selectFuego'},
+    {nombre:'💧', id: 'selectAgua'}
+)
+pydos.ataques.push(
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'💧', id: 'selectAgua'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🌱', id: 'selectTierra'},
+    {nombre:'🔥', id: 'selectFuego'}
+)
 //-----------------------------------------------------------------
 function iniciarJuego()
 {
