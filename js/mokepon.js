@@ -15,12 +15,12 @@ const botonAgua = document.getElementById('selectAgua')
 const botonTierra = document.getElementById('selectTierra')
 
 //seleccion de mascotas 
-let inputCapipego 
 let inputHipodoge 
-let inputLangostelvis 
+let inputCapipepo 
 let inputRatigueya 
-let inputPydos 
+let inputLangostelvis 
 let inputTucalma 
+let inputPydos 
 const spanMascotaJugador = document.getElementById('nombreMascota')
 const sectionSelecconarMascota = document.getElementById('seleccionar_mascota')
 
@@ -48,7 +48,7 @@ class Mokepon
     }
 }
 //creacion de mokepones
-let hipodoge = new Mokepon('Hipodogue', './assets/mokepones/hipodoge.png', 4)
+let hipodoge = new Mokepon('Hipodoge', './assets/mokepones/hipodoge.png', 4)
 let capipepo = new Mokepon('Capipepo', './assets/mokepones/capipepo.png', 4)
 let ratigueya = new Mokepon('Ratigueya', './assets/mokepones/ratigueya.png', 4)
 let langostelvis = new Mokepon('Langostelvis', './assets/mokepones/langostelvis.png', 4)
@@ -107,22 +107,25 @@ function iniciarJuego()
 
     mokepones.forEach((mokepon) => {
         opcionDeMokepones = `
-            <input type=“radio” name=“mascota” id=${mokepon.nombre} />
-            <label class="tarjeta-mokepon" for=${mokepon.nombre}>
-                <p>${mokepon.nombre}</p>
+          <input type="radio" name="mascota" id=${mokepon.nombre} />
+           <label class="tarjeta-mokepon" for=${mokepon.nombre}>
+              <p>${mokepon.nombre}</p>
                 <img src=${mokepon.foto} alt=${mokepon.nombre}>
-            </label>`
-        contenedorTarjetas.innerHTML += opcionDeMokepones
+        </label>
+        `
 
-        inputLangostelvis = document.getElementById(`Langostelvis`)
-        inputRatigueya = document.getElementById(`Ratigueya`)
-        inputPydos = document.getElementById(`Pydos`)
-        inputHipodoge = document.getElementById(`Hipodoge`)
-        inputCapipego = document.getElementById(`Capipego`)
-        inputTucalma = document.getElementById('Tucalma')
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+        
+         inputHipodoge = document.getElementById('Hipodoge')
+         inputCapipepo = document.getElementById('Capipepo')
+         inputRatigueya = document.getElementById('Ratigueya')
+         inputLangostelvis = document.getElementById('Langostelvis')
+         inputTucalma = document.getElementById('Tucalma')
+         inputPydos = document.getElementById('Pydos')
+
     })
 
-    botonMascotaJugador.addEventListener(`click`, seleccionarMascotaJugador)
+   botonMascotaJugador.addEventListener(`click`, seleccionarMascotaJugador)
 
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
@@ -139,32 +142,32 @@ function seleccionarMascotaJugador()
     if(inputHipodoge.checked) 
     {
         alert("Seleccionaste a Hipodoge")
-        spanMascotaJugador.innerHTML = 'Hipodoge'
+        spanMascotaJugador.innerHTML = inputHipodoge.id
     }
-    else if (inputCapipego.checked)
+    else if (inputCapipepo.checked)
     {
         alert("Seleccionaste a Capipego")
-        spanMascotaJugador.innerHTML = 'Capipego'
+        spanMascotaJugador.innerHTML = inputCapipepo.id
     } 
     else if (inputRatigueya.checked) 
     {
         alert("Seleccionaste a Ratigueya")
-        spanMascotaJugador.innerHTML = 'Ratigueya'
+        spanMascotaJugador.innerHTML = inputRatigueya.id
     }
     else if (inputLangostelvis.checked) 
     {
         alert("Seleccionaste a Langostelvis")
-        spanMascotaJugador.innerHTML = 'Langostelvis'
+        spanMascotaJugador.innerHTML = inputLangostelvis.id
     }
     else if (inputTucalma.checked) 
     {
         alert("Seleccionaste a Tucalma") 
-        spanMascotaJugador.innerHTML = 'Tucalma'
+        spanMascotaJugador.innerHTML = inputTucalma.id
     }
     else if (inputPydos.checked) 
     {
         alert("Seleccionaste a Pydos")
-        spanMascotaJugador.innerHTML = 'Pydos'
+        spanMascotaJugador.innerHTML = inputPydos.id
     }
 
     else // si la eleccion esta en blanco 
