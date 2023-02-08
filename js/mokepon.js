@@ -4,15 +4,18 @@ let vidaEnenmigo = 3
 let vidaJugador = 3
 let mokepones = []
 let opcionDeMokepones 
+let opcionDeAtaque
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+const contenedorAtaques = document.getElementById('contenedorAtaques')
+let mascotaJugador
 
 //variables extraidas de elememtos html funcion iniciarJuego 
 const sectionSeleccionarAtaque = document.getElementById('seleccionar_ataque')
 const botonMascotaJugador = document.getElementById(`selectMascota`)
-const botonFuego = document.getElementById('selectFuego')
 const botonReiniciar = document.getElementById('selectReiniciar')
-const botonAgua = document.getElementById('selectAgua')
-const botonTierra = document.getElementById('selectTierra')
+let botonFuego 
+let botonAgua 
+let botonTierra 
 
 //seleccion de mascotas 
 let inputHipodoge 
@@ -105,7 +108,8 @@ function iniciarJuego()
 {
     sectionSeleccionarAtaque.style.display = 'none'
 
-    mokepones.forEach((mokepon) => {
+    mokepones.forEach((mokepon) => 
+    {
         opcionDeMokepones = `
           <input type="radio" name="mascota" id=${mokepon.nombre} />
            <label class="tarjeta-mokepon" for=${mokepon.nombre}>
@@ -113,23 +117,19 @@ function iniciarJuego()
                 <img src=${mokepon.foto} alt=${mokepon.nombre}>
         </label>
         `
-
         contenedorTarjetas.innerHTML += opcionDeMokepones
-        
-         inputHipodoge = document.getElementById('Hipodoge')
-         inputCapipepo = document.getElementById('Capipepo')
-         inputRatigueya = document.getElementById('Ratigueya')
-         inputLangostelvis = document.getElementById('Langostelvis')
-         inputTucalma = document.getElementById('Tucalma')
-         inputPydos = document.getElementById('Pydos')
 
     })
 
-   botonMascotaJugador.addEventListener(`click`, seleccionarMascotaJugador)
+        inputHipodoge = document.getElementById('Hipodoge')
+        inputCapipepo = document.getElementById('Capipepo')
+        inputRatigueya = document.getElementById('Ratigueya')
+        inputLangostelvis = document.getElementById('Langostelvis')
+        inputTucalma = document.getElementById('Tucalma')
+        inputPydos = document.getElementById('Pydos')
 
-    botonFuego.addEventListener('click', ataqueFuego)
-    botonAgua.addEventListener('click', ataqueAgua)
-    botonTierra.addEventListener('click', ataqueTierra)
+    botonMascotaJugador.addEventListener(`click`, seleccionarMascotaJugador)
+
  
     botonReiniciar.addEventListener('click', reiniciar) 
     botonReiniciar.style.display = 'none'
@@ -138,36 +138,44 @@ function iniciarJuego()
 //seleccion de mascotas
 function seleccionarMascotaJugador()
 {
+    sectionSeleccionarAtaque.style.display = 'flex'
+    sectionSelecconarMascota.style.display = 'none'
 
     if(inputHipodoge.checked) 
     {
         alert("Seleccionaste a Hipodoge")
         spanMascotaJugador.innerHTML = inputHipodoge.id
+        mascotaJugador = inputHipodoge.id
     }
     else if (inputCapipepo.checked)
     {
         alert("Seleccionaste a Capipego")
         spanMascotaJugador.innerHTML = inputCapipepo.id
+        mascotaJugador = inputCapipepo.id
     } 
     else if (inputRatigueya.checked) 
     {
         alert("Seleccionaste a Ratigueya")
         spanMascotaJugador.innerHTML = inputRatigueya.id
+        mascotaJugador = inputRatigueya.id
     }
     else if (inputLangostelvis.checked) 
     {
         alert("Seleccionaste a Langostelvis")
         spanMascotaJugador.innerHTML = inputLangostelvis.id
+        mascotaJugador = inputLangostelvis.id
     }
     else if (inputTucalma.checked) 
     {
         alert("Seleccionaste a Tucalma") 
         spanMascotaJugador.innerHTML = inputTucalma.id
+        mascotaJugador = inputTucalma.id
     }
     else if (inputPydos.checked) 
     {
         alert("Seleccionaste a Pydos")
         spanMascotaJugador.innerHTML = inputPydos.id
+        mascotaJugador = inputPydos.id
     }
 
     else // si la eleccion esta en blanco 
@@ -175,25 +183,50 @@ function seleccionarMascotaJugador()
         alert("No has seleccionado nada, Selecciona una mascota")
         location.reload()
     }  
-
  
-    sectionSeleccionarAtaque.style.display = 'flex'
-    sectionSelecconarMascota.style.display = 'none'
-
+    extraerAtaques(mascotaJugador)
     seleccionarMascotaEnemigo()       
    // habilitarBotones()
 }
 
+function extraerAtaques(mascotaJugador)
+{
+    let ataques 
+    for(let i = 0; i < mokepones.length; i++)
+    {
+        if(mascotaJugador == mokepones[i].nombre)
+        {
+            ataques = mokepones[i].ataques
+        }
+    }
+    mostrarAtaques(ataques)
+}
+
+function mostrarAtaques(ataques)
+{
+    ataques.forEach((ataque) =>
+    {
+        opcionDeAtaque = `
+            <button id = ${ataque.id} class ="botonesAtaque"> ${ataque.nombre} </button>
+        `
+        contenedorAtaques.innerHTML += opcionDeAtaque   
+
+    })
+
+        botonFuego = document.getElementById('selectFuego')
+        botonAgua = document.getElementById('selectAgua')
+        botonTierra = document.getElementById('selectTierra')
+
+     botonFuego.addEventListener('click', ataqueFuego)
+     botonAgua.addEventListener('click', ataqueAgua)
+     botonTierra.addEventListener('click', ataqueTierra)
+}
+
 function seleccionarMascotaEnemigo()
 {
-    let mascotaAleatoria = aleatorio(1, 6)
+    let mascotaAleatoria = aleatorio(1, mokepones.length - 1)
 
-    if(mascotaAleatoria == 1) { spanMascotaEnemigo.innerHTML = 'Hipodoge'}
-    else if (mascotaAleatoria == 2) {spanMascotaEnemigo.innerHTML = 'Capipepo'} //capipepo
-    else if (mascotaAleatoria == 3) {spanMascotaEnemigo.innerHTML = 'Ratigueya'} //Ratigueya
-    else if (mascotaAleatoria == 4) {spanMascotaEnemigo.innerHTML = 'Lasgostelvis'}
-    else if (mascotaAleatoria == 5) {spanMascotaEnemigo.innerHTML = 'Tucalma'}
-    else {spanMascotaEnemigo.innerHTML = 'Pydos'}
+    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
 }
 
 //funciona aleatorio
@@ -221,7 +254,6 @@ function ataqueTierra()
     ataqueEnemigoAleatorio()
     
 }
-
 
 //ataque enemigo 
 function ataqueEnemigoAleatorio()
