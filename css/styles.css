@@ -140,17 +140,17 @@ input:checked + label
     color: rgb(255, 255, 255);
     font-family: 'Source Sans Pro', sans-serif;
     justify-content: center;
+    align-items: center;
 }
 
 .ataques 
 {
-    background-color: rgba(231, 162, 23, 0.427);
+    /*background-color: rgba(0, 41, 153, 0.638);*/
     display: grid;
-    grid-template-columns: 110px 110px;
-    font-size: 22px;
+    grid-template-columns: 125px 125px;
+    font-size: 20px;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
-
 }
 
 @media (max-width: 360px)
