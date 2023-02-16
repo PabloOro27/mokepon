@@ -234,16 +234,19 @@ function secuenciaAtaque()
              {
                 ataqueJugador.push('FUEGO')
                 boton.style.background = '#112f58'
+                boton.disabled = true 
              }
              else if(e.target.textContent === '💧')
              {
                 ataqueJugador.push('AGUA')
                 boton.style.background = '#112f58'
+                boton.disabled = true 
              }
              else if(e.target.textContent === '🌱')
              {
                 ataqueJugador.push('TIERRA')
                 boton.style.background = '#112f58'
+                boton.disabled = true 
              }
              ataqueEnemigoAleatorio()
             })
@@ -324,33 +327,33 @@ function combate()
         else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA')
          {
             indexAmbosOponentes(index, index);
-            crearMensaje("GANASTE");
             victoriasJugador++;
             spanVidasJugador.innerHTML = victoriasJugador;
+            crearMensaje("GANASTE");
         } 
 
         else if (ataqueJugador[index] ==='AGUA' && ataqueEnemigo[index] === 'FUEGO') 
         {
             indexAmbosOponentes(index, index);
-            crearMensaje("GANASTE");
             victoriasJugador++;
             spanVidasJugador.innerHTML = victoriasJugador;
+            crearMensaje("GANASTE");
         } 
         
         else if (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo[index] === 'AGUA')
          {
             indexAmbosOponentes(index, index);
-            crearMensaje("GANASTE");
             victoriasJugador++;
             spanVidasJugador.innerHTML = victoriasJugador;
+            crearMensaje("GANASTE");
         }
 
         else 
         {
             indexAmbosOponentes(index, index);
-            crearMensaje("PERDISTE");
             victoriasEnemigo++;
             spanVidasEnemigo.innerHTML = victoriasEnemigo;
+            crearMensaje("PERDISTE");
         }
     } 
     
@@ -363,28 +366,22 @@ function revisarVictorias()
     if(victoriasJugador === victoriasEnemigo)
      {
         alert('EMPATAMOS LA BATALLA')
-         botonReiniciar.style.display = 'flex'
-         botonAgua.style.display = 'none'
-         botonFuego.style.display = 'none'
-         botonTierra.style.display = 'none'
+        botonReiniciar.style.display = 'flex'
+        crearMensaje("EMPATE");
      }
 
     if(victoriasJugador > victoriasEnemigo)
      {
         alert('GANAMOS LA BATALLA')
-         botonReiniciar.style.display = 'flex'
-         botonAgua.style.display = 'none'
-         botonFuego.style.display = 'none'
-         botonTierra.style.display = 'none'
+        botonReiniciar.style.display = 'flex'
+        crearMensaje("GANASTE");
      }
 
     else if(victoriasJugador < victoriasEnemigo) 
     {
         alert('PERDISTE LA BATALLA :(')
-         botonReiniciar.style.display = 'flex'
-         botonAgua.style.display = 'none'
-         botonFuego.style.display = 'none'
-         botonTierra.style.display = 'none'
+        botonReiniciar.style.display = 'flex'
+        crearMensaje("PERDISTE");
     }
 }
 

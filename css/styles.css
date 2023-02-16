@@ -147,10 +147,12 @@ input:checked + label
 {
     /*background-color: rgba(0, 41, 153, 0.638);*/
     display: grid;
-    grid-template-columns: 125px 125px;
+    grid-template-columns: 155px 155px;
     font-size: 20px;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 360px)
